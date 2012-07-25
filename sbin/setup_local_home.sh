@@ -29,33 +29,33 @@ do
 done
 
 # Setup bashrc
-# echo "# BEGIN: Setup by setup_local_home.sh" >> ~/.bashrc
-# echo "export ZHANGYI_CONFIG_DIR=\"$CONFIG_DIR\"" >> ~/.bashrc
-# echo "export ZHANGYI_ENV_DIR=\"$ENV_DIR\"" >> ~/.bashrc
+echo "# BEGIN: Setup by setup_local_home.sh" >> ~/.bashrc
+echo "export ZHANGYI_CONFIG_DIR=\"$CONFIG_DIR\"" >> ~/.bashrc
+echo "export ZHANGYI_ENV_DIR=\"$ENV_DIR\"" >> ~/.bashrc
 
-# echo 'if [ -f "$ZHANGYI_ENV_DIR/shell/bashrc/bashrc.sh" ]; then' >> ~/.bashrc
-# echo '    . "$ZHANGYI_ENV_DIR/shell/bashrc/bashrc.sh"' >> ~/.bashrc
-# echo 'fi' >> ~/.bashrc
-# echo "# END: Setup by setup_local_home.sh" >> ~/.bashrc
+echo 'if [ -f "$ZHANGYI_ENV_DIR/shell/bashrc/bashrc.sh" ]; then' >> ~/.bashrc
+echo '    . "$ZHANGYI_ENV_DIR/shell/bashrc/bashrc.sh"' >> ~/.bashrc
+echo 'fi' >> ~/.bashrc
+echo "# END: Setup by setup_local_home.sh" >> ~/.bashrc
 
 # Setup profile
-# echo "# BEGIN: Setup by setup_local_home.sh" >> ~/.profile
-# echo 'if [ -f "$ZHANGYI_ENV_DIR/shell/profile.sh" ]; then' >> ~/.profile
-# echo '    . "$ZHANGYI_ENV_DIR/shell/profile.sh"' >> ~/.profile
-# echo 'fi' >> ~/.profile
-# echo "# END: Setup by setup_local_home.sh" >> ~/.profile
+echo "# BEGIN: Setup by setup_local_home.sh" >> ~/.profile
+echo 'if [ -f "$ZHANGYI_ENV_DIR/shell/profile.sh" ]; then' >> ~/.profile
+echo '    . "$ZHANGYI_ENV_DIR/shell/profile.sh"' >> ~/.profile
+echo 'fi' >> ~/.profile
+echo "# END: Setup by setup_local_home.sh" >> ~/.profile
 
 # Setup emacs
-# echo ";; BEGIN: Setup by setup_local_home.sh" >> ~/.emacs
-# echo "(load-file \"$ENV_DIR/emacs/start.el\")" >> ~/.emacs
-# echo ";; END: Setup by setup_local_home.sh" >> ~/.emacs
+echo ";; BEGIN: Setup by setup_local_home.sh" >> ~/.emacs
+echo "(load-file \"$ENV_DIR/emacs-config/start.el\")" >> ~/.emacs
+echo ";; END: Setup by setup_local_home.sh" >> ~/.emacs
 
 # Setup screen
-# if [ -f "$CONFIG_DIR/shell/screenrc" ]; then
-#     ln -sf "$CONFIG_DIR/shell/screenrc" ~/.screenrc
-# fi
+if [ -f "$CONFIG_DIR/shell/screenrc" ]; then
+    ln -sf "$CONFIG_DIR/shell/screenrc" ~/.screenrc
+fi
 
 # Setup environment related stuff
-# if [ -f "$ENV_DIR/sbin/setup_local_home.sh" ]; then
-#     . "$ENV_DIR/sbin/setup_local_home.sh"
-# fi
+if [ -f "$ENV_DIR/sbin/setup_local_home.sh" ]; then
+    . "$ENV_DIR/sbin/setup_local_home.sh"
+fi
