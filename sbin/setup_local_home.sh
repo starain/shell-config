@@ -56,6 +56,6 @@ if [ -f "$CONFIG_DIR/shell/screenrc" ]; then
 fi
 
 # Setup environment related stuff
-if [ -f "$ENV_DIR/sbin/setup_local_home.sh" ]; then
-    . "$ENV_DIR/sbin/setup_local_home.sh"
+if [ -f "$ENV_DIR/shell/sbin/setup_local_home.sh" ]; then
+    . "$ENV_DIR/shell/sbin/setup_local_home.sh"
 fi
