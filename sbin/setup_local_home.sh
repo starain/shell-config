@@ -15,18 +15,21 @@ then
 fi
 ENV_DIR="$CONFIG_DIR/$ENV_DIR_NAME"
 
-mkdir -p $CONFIG_DIR
+if [ "$SOURCE_CONFIG_DIR" != "$CONFIG_DIR" ]
+then
+  mkdir -p $CONFIG_DIR
 
-for sub_dir in $(ls $SOURCE_CONFIG_DIR)
-do
-  cd $CONFIG_DIR
-  git clone $SOURCE_CONFIG_DIR/$sub_dir
-  if [ "$sub_dir" != "$ENV_DIR_NAME" ]
-  then
-    cd $CONFIG_DIR/$sub_dir
-    git config user.email "starain.zhang@gmail.com"
-  fi
-done
+  for sub_dir in $(ls $SOURCE_CONFIG_DIR)
+  do
+    cd $CONFIG_DIR
+    git clone $SOURCE_CONFIG_DIR/$sub_dir
+    if [ "$sub_dir" != "$ENV_DIR_NAME" ]
+    then
+      cd $CONFIG_DIR/$sub_dir
+      git config user.email "starain.zhang@gmail.com"
+    fi
+  done
+fi
 
 # Setup bashrc
 echo "# BEGIN: Setup by setup_local_home.sh" >> ~/.bashrc
@@ -53,6 +56,11 @@ echo ";; END: Setup by setup_local_home.sh" >> ~/.emacs
 # Setup screen
 if [ -f "$CONFIG_DIR/shell/screenrc" ]; then
     ln -sf "$CONFIG_DIR/shell/screenrc" ~/.screenrc
+fi
+
+# Setup git
+if [ -f "$CONFIG_DIR/shell/gitignore" ]; then
+    ln -sf "$CONFIG_DIR/shell/gitignore" ~/.gitignore
 fi
 
 # Setup environment related stuff
