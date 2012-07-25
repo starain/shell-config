@@ -8,18 +8,24 @@ fi
 
 SOURCE_CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG_DIR="$1"
-ENV_DIR="$CONFIG_DIR"
+ENV_DIR_NAME=""
 if [ $# -eq 2 ]
 then
-    ENV_DIR="$CONFIG_DIR/$1"
+    ENV_DIR_NAME="$2"
 fi
+ENV_DIR="$CONFIG_DIR/$ENV_DIR_NAME"
 
 mkdir -p $CONFIG_DIR
-cd $CONFIG_DIR
 
 for sub_dir in $(ls $SOURCE_CONFIG_DIR)
 do
+  cd $CONFIG_DIR
   git clone $SOURCE_CONFIG_DIR/$sub_dir
+  if [ "$sub_dir" != "$ENV_DIR_NAME" ]
+  then
+    cd $CONFIG_DIR/$sub_dir
+    git config user.email "starain.zhang@gmail.com"
+  fi
 done
 
 # Setup bashrc
