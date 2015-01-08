@@ -137,4 +137,8 @@ bind ^] paste [.]
 # hardstatus alwayslastline "%w"
 
 escape ^\\\
-hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+# For solarized-dark terminal settings
+# http://ethanschoonover.com/solarized
+caption always '%{= k.}%{.b}[%{.g}%H%{.b}][%= %{.B}%?%-Lw%?%{.r}(%{+b .C}%n*%f %t%?(%u)%?%{-b .r})%{.B}%?%+Lw%?%?%= %{.b}][%{.y}%l%{.b}][%{.c}%Y-%m-%d %c%{.b}]%{= dd}'
+

@@ -5,4 +5,4 @@ if [ -f "$ZHANGYI_CONFIG_DIR/shell/bashrc/alias.sh" ]; then
 fi
 
 export EDITOR='emacsclient -a ""'
-
+export TERM=xterm-256color
