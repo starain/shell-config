@@ -1,35 +1,19 @@
 #!/bin/bash
 
 # Setup environment
-if [ $# -lt 1 ]
+if [ $# -lt 0 ]
 then
-    echo "Usage ${BASH_SOURCE[0]} target_config_dir [environment_sub_dir]"
+    echo "Usage ${BASH_SOURCE[0]} [environment_sub_dir]"
     exit
 fi
 
 SOURCE_CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-CONFIG_DIR="$1"
+CONFIG_DIR="$SOURCE_CONFIG_DIR"
 ENV_DIR="$CONFIG_DIR"
-if [ $# -eq 2 ]
+if [ $# -eq 1 ]
 then
-    ENV_DIR_NAME="$2"
+    ENV_DIR_NAME="$1"
     ENV_DIR="$CONFIG_DIR/$ENV_DIR_NAME"
-fi
-
-if [ "$SOURCE_CONFIG_DIR" != "$CONFIG_DIR" ]
-then
-  mkdir -p $CONFIG_DIR
-
-  for sub_dir in $(ls $SOURCE_CONFIG_DIR)
-  do
-    cd $CONFIG_DIR
-    git clone $SOURCE_CONFIG_DIR/$sub_dir
-    if [ "$sub_dir" != "$ENV_DIR_NAME" ]
-    then
-      cd $CONFIG_DIR/$sub_dir
-      git config user.email "starain.zhang@gmail.com"
-    fi
-  done
 fi
 
 # Setup bashrc
