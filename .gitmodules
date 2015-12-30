@@ -1,3 +1,6 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
+[submodule "emacs-config"]
+	path = emacs-config
+	url = https://github.com/starain/emacs-config.git
+[submodule "zshrc/oh-my-zsh"]
+	path = zshrc/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
