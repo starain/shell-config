@@ -79,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
+zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
+
 if [ -f "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh" ]; then
     . "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh"
 fi
