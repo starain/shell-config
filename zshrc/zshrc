@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$ZHANGYI_CONFIG_DIR/shell/oh-my-zsh
+export ZSH=$ZHANGYI_CONFIG_DIR/shell-config/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -81,3 +81,7 @@ source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
 zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
+
+if [ -f "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh" ]; then
+    . "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh"
+fi
