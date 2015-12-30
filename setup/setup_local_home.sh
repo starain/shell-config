@@ -16,6 +16,10 @@ then
 fi
 
 MODULE_NAME="shell-config"
+cd $CONFIG_DIR/$MODULE_NAME
+git submodule update --init --recursive
+cd $CONFIG_DIR
+
 MAGIC_ANCHOR="Setup by setup_local_home.sh"
 
 # Setup bashrc
@@ -45,11 +49,6 @@ echo '    . "$ZHANGYI_ENV_DIR/'"${MODULE_NAME}"'/profile.sh"' >> ~/.profile
 echo 'fi' >> ~/.profile
 echo "# END: $MAGIC_ANCHOR" >> ~/.profile
 
-# Setup emacs
-echo ";; BEGIN: $MAGIC_ANCHOR" >> ~/.emacs
-echo "(load-file \"$ENV_DIR/${MODULE_NAME}/emacs-config/start.el\")" >> ~/.emacs
-echo ";; END: $MAGIC_ANCHOR" >> ~/.emacs
-
 # Setup screen
 if [ -f "$CONFIG_DIR/${MODULE_NAME}/screenrc" ]; then
     ln -sf "$CONFIG_DIR/${MODULE_NAME}/screenrc" ~/.screenrc
@@ -62,6 +61,11 @@ fi
 
 if [ -f "$CONFIG_DIR/${MODULE_NAME}/git/gitconfig" ]; then
     ln -sf "$CONFIG_DIR/${MODULE_NAME}/git/gitconfig" ~/.gitconfig
+fi
+
+# Setup emacs
+if [ -f "$CONFIG_DIR/${MODULE_NAME}/emacs-config/setup/setup_local_home.sh" ]; then
+    . "$CONFIG_DIR/${MODULE_NAME}/emacs-config/setup/setup_local_home.sh"
 fi
 
 # Setup environment related stuff
