@@ -45,7 +45,6 @@ install() {
 
 uninstall() {
     TMP_FILE=$(mktemp)
-
     for f in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"
     do
         echo "Removing config from $f"
