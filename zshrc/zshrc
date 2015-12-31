@@ -82,6 +82,6 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
 zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
 
-if [ -f "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh" ]; then
-    . "$ZHANGYI_CONFIG_DIR/shell-config/bashrc/bashrc.sh"
+if [ -f "$ZHANGYI_CONFIG_DIR/bashrc/bashrc" ]; then
+    . "$ZHANGYI_CONFIG_DIR/bashrc/bashrc"
 fi
