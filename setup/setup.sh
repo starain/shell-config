@@ -3,7 +3,7 @@
 CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MAGIC_ANCHOR="Setup by setup_shell.sh"
 
-LINK_FILE="screenrc gitignore gitconfig"
+LINK_FILE="screenrc gitignore gitconfig tmux.conf"
 
 install() {
     # Checkout and update all submodules
