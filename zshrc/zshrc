@@ -46,12 +46,23 @@ ZSH_THEME="candy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ssh-agent gpg-agent)
-#plugins=(git)
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on               # completion caching, use rehash to clear
+zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
+
+if [ -f "$ZHANGYI_CONFIG_DIR/bashrc/bashrc" ]; then
+    . "$ZHANGYI_CONFIG_DIR/bashrc/bashrc"
+fi
+
+if [ -f "$ZHANGYI_CUSTOM_ZSHRC" ]; then
+    . "$ZHANGYI_CUSTOM_ZSHRC"
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,10 +90,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
-zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
-
-if [ -f "$ZHANGYI_CONFIG_DIR/bashrc/bashrc" ]; then
-    . "$ZHANGYI_CONFIG_DIR/bashrc/bashrc"
-fi

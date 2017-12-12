@@ -4,5 +4,5 @@ if [ -f "$ZHANGYI_CONFIG_DIR/bashrc/alias.sh" ]; then
     . "$ZHANGYI_CONFIG_DIR/bashrc/alias.sh"
 fi
 
-export EDITOR='emacsclient -a ""'
+export EDITOR='emacsclient -t'
 export LANG=en_US.UTF-8
